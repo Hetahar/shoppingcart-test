@@ -60,7 +60,7 @@ public class Main {
             int price = scanner.nextInt();
             System.out.println(rb.getString("amount"));
             int amount = scanner.nextInt();
-            totalPrice = countPrice(amount, price);
+            totalPrice += countPrice(amount, price);
         }
         System.out.println(rb.getString("total") + totalPrice);
     }
