@@ -14,7 +14,6 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/Hetahar/shoppingcart-test.git'
-
             }
         }
         stage('Build') {
