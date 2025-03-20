@@ -1,14 +1,15 @@
+import classes.Item;
+import classes.ShoppingCart;
+
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
-public class Main {
-
-    public static int countPrice(int amount, int price) {
-        return amount * price;
-    }
+public class App {
 
     public static void main(String[] args) {
+        ShoppingCart cart = new ShoppingCart();
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Select a language: ");
@@ -58,10 +59,15 @@ public class Main {
         for (int i = 1; i <= number; i++) {
             System.out.println(rb.getString("price"));
             int price = scanner.nextInt();
+            Item item = new Item(price);
             System.out.println(rb.getString("amount"));
             int amount = scanner.nextInt();
-            totalPrice += countPrice(amount, price);
+
+            for (int j = 0; j < amount; j++) {
+                cart.addItem(item);
+            }
         }
+        totalPrice = cart.calculateTotal();
         System.out.println(rb.getString("total") + totalPrice);
     }
 }
